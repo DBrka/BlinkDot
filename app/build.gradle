@@ -32,6 +32,12 @@ android {
                 keyAlias keystoreProps['keyAlias']
                 keyPassword keystoreProps['keyPassword']
             }
+            // Sign with every scheme. v2 alone is valid for this minSdk, but
+            // some vendor installers reject a sideloaded APK without a v1
+            // (JAR) signature, showing only "App not installed".
+            enableV1Signing true
+            enableV2Signing true
+            enableV3Signing true
         }
     }
 
