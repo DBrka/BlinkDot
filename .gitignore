@@ -1,0 +1,19 @@
+# Build output
+build/
+app/build/
+.gradle/
+.kotlin/
+
+# Local machine config (contains absolute SDK path)
+local.properties
+
+# Signing key — NEVER commit this. Anyone holding it can sign updates
+# that Android will install over BlinkDot as if they were yours.
+*.jks
+*.keystore
+keystore.properties
+
+# IDE
+.idea/
+*.iml
+.DS_Store

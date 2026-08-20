@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BlinkDot</string>
+    <string name="tagline">A blinking notification dot for your locked screen</string>
+    <string name="pick_apps">Apps and colours</string>
+    <string name="setup">Setup</string>
+    <string name="grant">Grant</string>
+    <string name="granted">Granted</string>
+    <string name="notif_access">Notification access</string>
+    <string name="notif_access_why">Lets BlinkDot see which app a message came from.</string>
+    <string name="overlay">Display over other apps</string>
+    <string name="overlay_why">Lets the dot appear while the phone is locked.</string>
+    <string name="battery">Unrestricted battery</string>
+    <string name="battery_why">Stops Samsung from putting BlinkDot to sleep.</string>
+    <string name="post_notif">Post notifications</string>
+    <string name="post_notif_why">Backup trigger if the dot cannot start directly.</string>
+    <string name="master">BlinkDot enabled</string>
+    <string name="master_sub">Blink when a message arrives while the screen is off or locked</string>
+    <string name="choose_apps">Choose apps and colours</string>
+    <string name="appearance">Appearance</string>
+    <string name="position">Corner</string>
+    <string name="dot_size">Dot size</string>
+    <string name="margin">Distance from corner</string>
+    <string name="on_ms">Flash length</string>
+    <string name="off_ms">Pause between flashes</string>
+    <string name="smooth">Soft fade</string>
+    <string name="smooth_sub">Pulse in and out instead of a hard blink</string>
+    <string name="glow">Glow halo</string>
+    <string name="glow_sub">Soft halo around the dot</string>
+    <string name="brightness">Screen brightness while blinking</string>
+    <string name="timeout">Give up after</string>
+    <string name="test">Preview the dot</string>
+    <string name="search_apps">Search apps</string>
+    <string name="pick_colour">Pick a colour</string>
+    <string name="use_colour">Use colour</string>
+    <string name="cancel">Cancel</string>
+    <string name="loading">Loading apps</string>
+    <string name="apps_hint">Turn on the apps you want a dot for. Tap the coloured circle to change the colour for that app.</string>
+    <string name="no_apps_selected">No apps selected yet</string>
+    <string name="apps_selected">%1$d apps selected</string>
+</resources>
