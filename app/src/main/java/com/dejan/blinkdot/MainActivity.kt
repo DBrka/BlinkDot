@@ -68,6 +68,17 @@ class MainActivity : AppCompatActivity() {
         slider(R.id.sliderTimeout, getString(R.string.timeout), 0, 60, 5, prefs.timeoutMin,
             { if (it == 0) "until unlocked" else it.toString() + " min" }) { prefs.timeoutMin = it }
 
+        // The give-up timer is meaningless while "blink until read" is on, so
+        // it only appears when that switch is off.
+        val timeoutRow = findViewById<View>(R.id.sliderTimeout)
+        timeoutRow.visibility = if (prefs.blinkUntilRead) View.GONE else View.VISIBLE
+
+        switchRow(R.id.switchUntilRead, getString(R.string.until_read),
+            getString(R.string.until_read_sub), prefs.blinkUntilRead) { on ->
+            prefs.blinkUntilRead = on
+            timeoutRow.visibility = if (on) View.GONE else View.VISIBLE
+        }
+
         switchRow(R.id.switchSmooth, getString(R.string.smooth), getString(R.string.smooth_sub),
             prefs.smooth) { prefs.smooth = it }
 

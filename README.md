@@ -6,7 +6,7 @@ When a message arrives while your phone is locked or the screen is off, BlinkDot
 turns the screen on, paints it completely black, and blinks a small coloured dot
 in the corner you chose. Each app gets its own colour.
 
-**APK:** `BlinkDot-v1.0.apk` (4.5 MB, signed, installs on Android 8.1+)
+**APK:** [`BlinkDot-v1.1.apk`](BlinkDot-v1.1.apk) (4.5 MB, signed, installs on Android 8.1+)
 
 ---
 
@@ -25,11 +25,33 @@ notification LED, and very cheap on battery.
 
 ## Installing
 
-1. Copy `BlinkDot-v1.0.apk` to your phone (USB, Google Drive, or email it to yourself).
-2. Open it with **My Files** on the phone and tap **Install**.
+1. On the phone, open
+   `https://github.com/DBrka/BlinkDot/raw/main/BlinkDot-v1.1.apk`
+   in Chrome, or copy the APK across by USB.
+2. Open it with **My Files** and tap **Install**.
 3. Android will warn about installing from an unknown source — allow it for the
    app you are installing from (My Files / Chrome). This is normal for an app
    that does not come from the Play Store.
+
+### If it says "App not installed"
+
+The APK is fine; the phone is refusing the sideload. In order of likelihood:
+
+1. **Play Protect** — Play Store → your avatar → Play Protect → ⚙ → turn off
+   "Scan apps with Play Protect", install, then turn it back on.
+   *(This is the one that actually blocked the first install here.)*
+2. **Samsung Auto Blocker** — Settings → Security and privacy → Auto Blocker →
+   off. One UI turns this on by default and it blocks all sideloading.
+3. **Install unknown apps** — Settings → Apps → ⋮ → Special access →
+   Install unknown apps → grant it to Chrome *and* My Files separately.
+4. **A leftover copy** signed with a different key — uninstall it first.
+
+### After installing an update
+
+Check that **Notification access** is still granted. Reinstalling an APK can
+unbind the notification listener, and a listener that is not bound sees nothing.
+If the dot stops appearing after an update, toggle it off and on again in
+Settings → Notifications → Special access → Notification access.
 
 ## Setting it up (first launch)
 
@@ -71,8 +93,12 @@ and dismiss it there.
 - **Flash length** and **Pause between flashes** — the blink rhythm.
 - **Screen brightness while blinking** — defaults to 4 %. Low is good: the
   screen is black anyway, and this is what keeps battery use down.
-- **Give up after** — stops blinking after N minutes so a message you never see
-  cannot keep the screen awake all night. Set to 0 to blink until you unlock.
+- **Blink until I open the message** — on by default. The dot keeps blinking
+  and comes back every time you lock the phone, until the message is actually
+  read. Glancing at the screen without reading does not clear it; opening the
+  message does. Turn this off to get the **Give up after** timer instead.
+- **Give up after** — only shown when the option above is off. Stops blinking
+  after N minutes. Set to 0 to blink until you unlock.
 - **Soft fade** — pulse in and out instead of a hard on/off blink.
 - **Glow halo** — a soft halo around the dot.
 - **Preview the dot** — shows the black screen with your settings for 12 seconds.
@@ -81,6 +107,9 @@ and dismiss it there.
 
 - Blinks **only** when the screen is off or the phone is locked. If you are
   using the phone, nothing happens.
+- **Touch, or a press of the power button, puts the dot away.** It will not
+  immediately reappear — but with "blink until I open the message" on, it comes
+  back the next time you wake and re-lock the phone with something still unread.
 - If two apps are waiting, the dot **alternates between their colours**.
 - **Touch the screen** to dismiss and go back to the normal lock screen.
 - Unlocking the phone dismisses it automatically.

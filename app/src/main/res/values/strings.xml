@@ -29,6 +29,8 @@
     <string name="glow_sub">Soft halo around the dot</string>
     <string name="brightness">Screen brightness while blinking</string>
     <string name="timeout">Give up after</string>
+    <string name="until_read">Blink until I open the message</string>
+    <string name="until_read_sub">Keeps blinking, and comes back every time you lock the phone, until you actually read it</string>
     <string name="test">Preview the dot</string>
     <string name="search_apps">Search apps</string>
     <string name="pick_colour">Pick a colour</string>

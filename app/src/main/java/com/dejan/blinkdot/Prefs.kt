@@ -50,6 +50,15 @@ class Prefs(ctx: Context) {
         get() = sp.getInt("timeout_min", 10)
         set(v) = sp.edit().putInt("timeout_min", v).apply()
 
+    /**
+     * Keep blinking until the message is actually opened, rather than giving
+     * up after a timeout. The dot comes back every time the phone locks again
+     * while something is still unread.
+     */
+    var blinkUntilRead: Boolean
+        get() = sp.getBoolean("until_read", true)
+        set(v) = sp.edit().putBoolean("until_read", v).apply()
+
     private fun appSet(): Set<String> = sp.getStringSet("apps", emptySet()) ?: emptySet()
 
     fun enabledApps(): Set<String> = appSet()

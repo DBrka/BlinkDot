@@ -253,6 +253,12 @@
                 android:layout_height="wrap_content" />
 
             <include
+                android:id="@+id/switchUntilRead"
+                layout="@layout/row_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <include
                 android:id="@+id/sliderTimeout"
                 layout="@layout/row_slider"
                 android:layout_width="match_parent"

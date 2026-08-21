@@ -41,6 +41,7 @@ class BlinkActivity : Activity() {
         super.onCreate(savedInstanceState)
         prefs = Prefs(this)
         preview = intent?.getBooleanExtra(EXTRA_PREVIEW, false) == true
+        if (!preview) BlinkState.showing = true
 
         setShowWhenLocked(true)
         setTurnScreenOn(true)
@@ -78,7 +79,7 @@ class BlinkActivity : Activity() {
 
         if (preview) {
             handler.postDelayed({ dismiss() }, PREVIEW_MS)
-        } else {
+        } else if (!prefs.blinkUntilRead) {
             val minutes = prefs.timeoutMin
             if (minutes > 0) handler.postDelayed({ dismiss() }, minutes * 60_000L)
         }
@@ -137,7 +138,12 @@ class BlinkActivity : Activity() {
         return super.onTouchEvent(event)
     }
 
+    /**
+     * The user is putting the dot away. Disarm so screen-off does not bring it
+     * straight back; unlocking without reading re-arms it.
+     */
     private fun dismiss() {
+        if (!preview) BlinkState.disarm()
         handler.removeCallbacksAndMessages(null)
         finish()
         @Suppress("DEPRECATION")
@@ -145,6 +151,7 @@ class BlinkActivity : Activity() {
     }
 
     override fun onDestroy() {
+        if (!preview) BlinkState.showing = false
         BlinkState.setListener(null)
         handler.removeCallbacksAndMessages(null)
         try {
